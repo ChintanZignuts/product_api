@@ -1,5 +1,7 @@
 from pathlib import Path
 from dotenv import load_dotenv
+from django.db import connections
+from django.db.utils import OperationalError
 import os
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -72,11 +74,11 @@ WSGI_APPLICATION = 'product_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'product_api',
-        'USER': 'root',
-        'PASSWORD':'password',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
     }
 }
 
